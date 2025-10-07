@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helpdesk CRTE</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>CHAMA O CRTE!</h1>
+      </header>
+
+      <!-- Formulário de Novo Chamado -->
+      <section class="form-section">
+        <h2>Novo Chamado</h2>
+        <form id="formChamado">
+          <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="setor">Setor:</label>
+            <select id="setor" required>
+              <option value="">Selecione...</option>
+              <option value="TI">TI</option>
+              <option value="RH">RH</option>
+              <option value="Financeiro">Financeiro</option>
+              <option value="Operacional">Operacional</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="motivo_chamado">Motivo do Chamado:</label>
+            <textarea id="motivo_chamado" rows="3" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="responsavel">Responsável:</label>
+            <select id="responsavel">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Criar Chamado</button>
+        </form>
+      </section>
+
+      <!-- Lista de Chamados -->
+      <section class="chamados-section">
+        <h2>Chamados Abertos</h2>
+        <div class="filtros">
+          <input
+            type="text"
+            id="filtroNome"
+            placeholder="Filtrar por nome..."
+          />
+          <select id="filtroStatus">
+            <option value="">Todos os Status</option>
+            <option value="aberto">Aberto</option>
+            <option value="em_andamento">Em Andamento</option>
+            <option value="resolvido">Resolvido</option>
+            <option value="fechado">Fechado</option>
+          </select>
+        </div>
+        <div id="listaChamados" class="chamados-grid"></div>
+      </section>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="modalEditar" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Editar Chamado</h2>
+        <form id="formEditar">
+          <input type="hidden" id="editId" />
+
+          <div class="form-group">
+            <label for="editStatus">Status:</label>
+            <select id="editStatus" required>
+              <option value="aberto">Aberto</option>
+              <option value="em_andamento">Em Andamento</option>
+              <option value="resolvido">Resolvido</option>
+              <option value="fechado">Fechado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="editResponsavel">Responsável:</label>
+            <select id="editResponsavel">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="fecharModal()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

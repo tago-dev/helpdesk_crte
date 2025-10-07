@@ -1,0 +1,20 @@
+{
+  "name": "helpdesk-crte-frontend",
+  "version": "1.0.0",
+  "description": "Frontend do Sistema de Helpdesk CRTE",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8080 -o",
+    "start": "npx http-server -p 8080"
+  },
+  "keywords": [
+    "helpdesk",
+    "crte",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
